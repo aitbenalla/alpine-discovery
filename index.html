@@ -59,10 +59,10 @@
         <div class="mt-3" x-data="tabs('tab1')">
             <ul class="nav nav-pills">
                 <li class="nav-item">
-                    <a :class="{active: isActive('tab1')}" @click="toggleTab" class="nav-link" href="#tab1">Details</a>
+                    <a x-active-page="isActive('tab1')" @click="toggleTab" class="nav-link" href="#tab1">Details</a>
                 </li>
                 <li class="nav-item">
-                    <a :class="{active: isActive('tab2')}" @click="toggleTab" class="nav-link" href="#tab2">Related
+                    <a x-active-page="isActive('tab2')" @click="toggleTab" class="nav-link" href="#tab2">Related
                         Posts</a>
                 </li>
             </ul>

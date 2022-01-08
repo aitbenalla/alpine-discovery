@@ -35,4 +35,28 @@ document.addEventListener('alpine:init', () => {
             this.$store.posts.loadPosts()
         }
     }))
+
+    Alpine.directive('active-page', (el, {
+        expression
+    }, {
+        effect,
+        evaluateLater
+    }) => {
+        const onActiveChange = evaluateLater(expression);
+
+        effect(() => {
+            onActiveChange(active => {
+                if (active) {
+                    el.classList.add('active');
+                    el.setAttribute('aria-current', 'page');
+                }
+                else
+                {
+                    el.classList.remove('active');
+                    el.removeAttribute('aria-current');
+                }
+            });
+        })
+
+    })
 })
